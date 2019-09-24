@@ -7,4 +7,37 @@
   
 <mapper namespace="com.example.demo.dao.KeywordDao">
 
+<!-- 	<insert id="insert" parameterType="map"> -->
+<!-- 		INSERT INTO tb_sns_index_analysis -->
+<!-- 		VALUE (#{date},"B",#{positive},#{negative},#{neutral}) -->
+<!-- 	</insert> -->
+	
+	<insert id="insert" parameterType="java.util.List">
+	    INSERT INTO tb_sns_index_analysis 
+	    (sns_type,register_date,positive_count,negative_count,neutral_count)
+	    VALUES
+	    <foreach collection="list" item="row" separator=" , " >
+	    	("B",
+	    	<foreach collection="row.entrySet()" item="value" separator=" , " >
+	        	"${value}"
+	    	</foreach>
+	        )
+	    </foreach>
+	</insert>
+	
+<!-- 	<select id="select" resultMap="ex">  -->
+<!-- 		SELECT * FROM  -->
+<!-- 	</select>  -->
+	
+<!-- 	<insert id="testInsert">  -->
+<!-- 		INSERT INTO tb_sns_index_analysis ( name, json )  -->
+<!-- 		VALUES ( #{name}, #{json, typeHandler=org.syaku.ex.mapper.type.JSONTypeHandler} )  -->
+<!-- 	</insert> -->
+
+	
+<!-- 	<resultMap id="tset" type="com.example.demo.domain.Test">  -->
+<!-- 		<result property="name" column="name" />  -->
+<!-- 		<result property="json" column="json" typeHandler="com.example.demo.util.JsonTypeHandler" />  -->
+<!-- 	</resultMap> -->
+
 </mapper>
