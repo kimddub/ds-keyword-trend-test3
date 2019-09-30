@@ -1,7 +1,11 @@
+custom:
+  tm2Url: http://qt.some.co.kr/TrendMap/JSON/ServiceHandler?
 server:
   port: 8020
 spring:
   mvc:
+    async:
+      request-timeout: 1200000
     view:
       prefix: /WEB-INF/jsp/ 
       suffix: .jsp
